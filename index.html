@@ -1,120 +1,225 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Larry's Catalogue</title>
-	<!-- CSS only -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
-	<script>
-		function myFunction() {
-		  alert("Added");
-		}
-		</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalogue / Catalogue de Produits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .controls {
+            text-align: center;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .catalogue {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product .name-en, .product .name-fr {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product .price {
+            font-size: 1.2em;
+            color: #28a745;
+        }
+        .product button {
+            background-color: #28a745;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        .fr {
+            display: none;
+        }
+        .en {
+            display: block;
+        }
+        /* French mode */
+        body.french .fr {
+            display: block;
+        }
+        body.french .en {
+            display: none;
+        }
+    </style>
 </head>
+<body class="english" data-currency="USD" data-rate="1">
+    <header>
+        <h1 class="en">Semi-Formal Product Catalogue</h1>
+        <h1 class="fr">Catalogue de Produits Semi-Formels</h1>
+        <p class="en">Discover our collection of semi-formal attire</p>
+        <p class="fr">Découvrez notre collection de vêtements semi-formels</p>
+    </header>
 
-<body>
-	<header>
-		<h1><b>Product Catalogue</b></h1>
-		<hr>
-		​
-	</header>
-	<div class="ever">
-	</div>
-	<div class="marq">
-		<marquee behavior="scroll" direction="left" scrollamount="12">SALE!!!! SALE!!!! SALE!!!!</marquee>
-	</div>
+    <div class="controls">
+        <button onclick="toggleLanguage()">Toggle Language / Changer de Langue</button>
+        <button onclick="toggleCurrency()">Toggle Currency / Changer de Devise</button>
+    </div>
 
-	<table border="1" align="center" cellspacing="0" cellpadding="10">
-		<tr align="center">
-			<td>
-				<img src="./imgs/1.jpg" width="250" height="225" class="my-img"><br>
-				<b>Red T-shirt Comfort Colors 1717</b><br>
-				<b>T-shirt Rouge Comfort Colors 1717</b><br>
-				Price/Prix:<br>
-				<em>$6.89 USD</em><br>
-				<em>€5,93 EUR</em><br>
-				<button type="button" class="btn btn-primary my-btn" onclick="myFunction()">Add to Cart</button>
-			</td>
-			<td>
-				<img src="./imgs/2.jpg" width="250" height="225" class="my-img"><br>
-				<b>Yellow T-shirt Lat 6901</b><br>
-				<b>T-shirt Jaune Lat 6901</b><br>
-				Price/Prix:<br>
-				<em>$7.59 USD</em><br>
-				<em>€6.53 EUR</em><br>
-				<button type="button" class="btn btn-primary my-btn" onclick="myFunction()">Add to Cart</button>
-			</td>
-			<td>
-				<img src="./imgs/3.jpg" width="250" height="225" class="my-img"><br>
-				<b>Red T-shirt</b><br>
-				Price:<br>
-				<em>$3.50 USD</em><br>
-				<em>€2.15 EUR</em><br>
-				<button type="button" class="btn btn-primary my-btn" onclick="myFunction()">Add to Cart</button>
-			</td>
-			<td>
-				<img src="./imgs/4.jpg" width="250" height="225" class="my-img"><br>
-				<b>Red T-shirt</b><br>
-				Price:<br>
-				<em>$3.50 USD</em><br>
-				<em>€2.15 EUR</em><br>
-				<button type="button" class="btn btn-primary my-btn" onclick="myFunction()">Add to Cart</button>
-			</td>
-			<td>
-				<img src="./imgs/5.jpg" width="250" height="225" class="my-img"><br>
-				<b>Red T-shirt</b><br>
-				Price:<br>
-				<em>$3.50 USD</em><br>
-				<em>€2.15 EUR</em><br>
-				<button type="button" class="btn btn-primary my-btn" onclick="myFunction()">Add to Cart</button>
-			</td>
-		</tr>
-		<tr align="center">
-			<td>
-				<img src="./imgs/3.jpg" width="250" height="225" class="my-img"><br>
-				<b>Red T-shirt</b><br>
-				Price:<br>
-				<em>$3.50 USD</em><br>
-				<em>€2.15 EUR</em><br>
-				<button type="button" class="btn btn-primary my-btn" onclick="myFunction()">Add to Cart</button>
-			</td>
-			<td>
-				<img src="./imgs/6.jpg" width="250" height="225" class="my-img"><br>
-				<b>Red T-shirt</b><br>
-				Price:<br>
-				<em>$3.50 USD</em><br>
-				<em>€2.15 EUR</em><br>
-				<button type="button" class="btn btn-primary my-btn" onclick="myFunction()">Add to Cart</button>
-			</td>
-			<td>
-				<img src="./imgs/4.jpg" width="250" height="225" class="my-img"><br>
-				<b>Red T-shirt</b><br>
-				Price:<br>
-				<em>$3.50 USD</em><br>
-				<em>€2.15 EUR</em><br>
-				<button type="button" class="btn btn-primary my-btn" onclick="myFunction()">Add to Cart</button>
-			</td>
-			<td>
-				<img src="./imgs/2.png" width="250" height="225" class="my-img"><br>
-				<b>Red T-shirt</b><br>
-				Price:<br>
-				<em>$3.50 USD</em><br>
-				<em>€2.15 EUR</em><br>
-				<button type="button" class="btn btn-primary my-btn" onclick="myFunction()">Add to Cart</button>
-			</td>
-			<td>
-				<img src="./imgs/5.jpg" width="250" height="225" class="my-img"><br>
-				<b>Red T-shirt</b><br>
-				Price:<br>
-				<em>$3.50 USD</em><br>
-				<em>€2.15 EUR</em><br>
-				<button type="button" class="btn btn-primary my-btn" onclick="myFunction()">Add to Cart</button>
-			</td>
-		</tr>
+    <section class="catalogue">
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/250x250?text=Red+Polo+Shirt" alt="Red Polo Shirt / Polo Rouge">
+            <div class="name-en">Red Polo Shirt</div>
+            <div class="name-fr">Polo Rouge</div>
+            <div class="price" data-usd="25.99">$25.99 USD</div>
+            <button class="en">Add to Cart</button>
+            <button class="fr">Ajouter au Panier</button>
+        </div>
 
-	</table>
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/250x250?text=Blue+Button-Down+Shirt" alt="Blue Button-Down Shirt / Chemise Bleue à Boutons">
+            <div class="name-en">Blue Button-Down Shirt</div>
+            <div class="name-fr">Chemise Bleue à Boutons</div>
+            <div class="price" data-usd="35.50">$35.50 USD</div>
+            <button class="en">Add to Cart</button>
+            <button class="fr">Ajouter au Panier</button>
+        </div>
 
+        <!-- Product 3 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/250x250?text=Khaki+Golf+Trousers" alt="Khaki Golf Trousers / Pantalon de Golf Kaki">
+            <div class="name-en">Khaki Golf Trousers</div>
+            <div class="name-fr">Pantalon de Golf Kaki</div>
+            <div class="price" data-usd="45.00">$45.00 USD</div>
+            <button class="en">Add to Cart</button>
+            <button class="fr">Ajouter au Panier</button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/250x250?text=Black+Equestrian+Pants" alt="Black Equestrian Pants / Pantalon d'Équitation Noir">
+            <div class="name-en">Black Equestrian Pants</div>
+            <div class="name-fr">Pantalon d'Équitation Noir</div>
+            <div class="price" data-usd="50.00">$50.00 USD</div>
+            <button class="en">Add to Cart</button>
+            <button class="fr">Ajouter au Panier</button>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/250x250?text=Grey+Chinos" alt="Grey Chinos / Chinos Gris">
+            <div class="name-en">Grey Chinos</div>
+            <div class="name-fr">Chinos Gris</div>
+            <div class="price" data-usd="40.00">$40.00 USD</div>
+            <button class="en">Add to Cart</button>
+            <button class="fr">Ajouter au Panier</button>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/250x250?text=Navy+Blazer" alt="Navy Blazer / Blazer Bleu Marine">
+            <div class="name-en">Navy Blazer</div>
+            <div class="name-fr">Blazer Bleu Marine</div>
+            <div class="price" data-usd="120.00">$120.00 USD</div>
+            <button class="en">Add to Cart</button>
+            <button class="fr">Ajouter au Panier</button>
+        </div>
+
+        <!-- Additional products from original, optimized -->
+        <div class="product">
+            <img src="https://via.placeholder.com/250x250?text=Yellow+T-Shirt" alt="Yellow T-Shirt / T-Shirt Jaune">
+            <div class="name-en">Yellow T-Shirt Lat 6901</div>
+            <div class="name-fr">T-Shirt Jaune Lat 6901</div>
+            <div class="price" data-usd="7.59">$7.59 USD</div>
+            <button class="en">Add to Cart</button>
+            <button class="fr">Ajouter au Panier</button>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/250x250?text=Green+T-Shirt" alt="Green T-Shirt / T-Shirt Vert">
+            <div class="name-en">Green T-Shirt</div>
+            <div class="name-fr">T-Shirt Vert</div>
+            <div class="price" data-usd="3.50">$3.50 USD</div>
+            <button class="en">Add to Cart</button>
+            <button class="fr">Ajouter au Panier</button>
+        </div>
+
+        <!-- Removed duplicates and optimized -->
+    </section>
+
+    <script>
+        function toggleLanguage() {
+            document.body.classList.toggle('french');
+            document.body.classList.toggle('english');
+        }
+
+        async function toggleCurrency() {
+            const currentCurrency = document.body.getAttribute('data-currency');
+            if (currentCurrency === 'USD') {
+                // Switch to EUR
+                let rate = document.body.getAttribute('data-rate');
+                if (rate === '1') {
+                    // Fetch rate if not already fetched
+                    try {
+                        const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+                        const data = await response.json();
+                        rate = data.rates.EUR;
+                        document.body.setAttribute('data-rate', rate);
+                    } catch (error) {
+                        console.error('Error fetching exchange rate:', error);
+                        alert('Unable to fetch exchange rate. Using default.');
+                        rate = 0.85; // Fallback rate
+                    }
+                }
+                document.querySelectorAll('.price').forEach(priceElem => {
+                    const usdPrice = parseFloat(priceElem.getAttribute('data-usd'));
+                    const eurPrice = (usdPrice * rate).toFixed(2);
+                    priceElem.textContent = `€${eurPrice} EUR`;
+                });
+                document.body.setAttribute('data-currency', 'EUR');
+            } else {
+                // Switch back to USD
+                document.querySelectorAll('.price').forEach(priceElem => {
+                    const usdPrice = priceElem.getAttribute('data-usd');
+                    priceElem.textContent = `$${usdPrice} USD`;
+                });
+                document.body.setAttribute('data-currency', 'USD');
+            }
+        }
+    </script>
 </body>
-
 </html>
